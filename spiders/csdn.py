@@ -1,6 +1,9 @@
 import html2text
 import scrapy
 
+from ..items import CsdnspiderItem
+
+
 class CustomHTML2Text(html2text.HTML2Text):
     def handle_img(self, tag, attrs):
         """Overwrite the default handle_img method to output the img tag as text."""
@@ -11,7 +14,7 @@ class CustomHTML2Text(html2text.HTML2Text):
 class CsdnSpider(scrapy.Spider):
     name = "csdn"
     allowed_domains = ["blog.csdn.net"]
-    start_urls = ["https://blog.csdn.net/I_am_sold_out/article/details/113818985"]
+    start_urls = ["https://blog.csdn.net/weixin_50920579/article/details/122379512"]
 
     def parse(self, response):
         # 保存一份html页面
@@ -26,5 +29,10 @@ class CsdnSpider(scrapy.Spider):
 
         # text_converter.ignore_links = True
         converted_text = text_converter.handle(cotent_node)
-        print(converted_text)
-        pass
+        item = CsdnspiderItem()
+        item['content'] = converted_text
+        # 获取文章标题
+        title = response.xpath('//*[@id="articleContentId"]').css('h1.title-article::text').extract_first()
+        item['title'] = title
+        yield item
+        # pass

@@ -14,7 +14,8 @@ class CustomHTML2Text(html2text.HTML2Text):
 class CsdnSpider(scrapy.Spider):
     name = "csdn"
     allowed_domains = ["blog.csdn.net"]
-    start_urls = ["https://blog.csdn.net/weixin_50920579/article/details/122379512"]
+
+    start_urls = ["https://blog.csdn.net/zwznzje/article/details/138480969"]
 
     def parse(self, response):
         # 保存一份html页面

@@ -15,7 +15,7 @@ class CsdnSpider(scrapy.Spider):
     name = "csdn"
     allowed_domains = ["blog.csdn.net"]
 
-    start_urls = ["https://blog.csdn.net/zwznzje/article/details/138480969"]
+    start_urls = ["https://blog.csdn.net/qq_35701988/article/details/136709803"]
 
     def parse(self, response):
         # 保存一份html页面

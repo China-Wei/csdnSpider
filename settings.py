@@ -47,9 +47,9 @@ USER_AGENT = ("Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHT
 
 # Enable or disable spider middlewares
 # See https://docs.scrapy.org/en/latest/topics/spider-middleware.html
-#SPIDER_MIDDLEWARES = {
-#    "csdnspider.middlewares.CsdnspiderSpiderMiddleware": 543,
-#}
+SPIDER_MIDDLEWARES = {
+   "csdnspider.middlewares.RandomUserAgentMiddleware": 543,
+}
 
 # Enable or disable downloader middlewares
 # See https://docs.scrapy.org/en/latest/topics/downloader-middleware.html

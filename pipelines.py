@@ -18,12 +18,11 @@ class CsdnspiderPipeline:
     def process_item(self, item, spider):
         if spider.name == 'csdn':
             item = dict(item)
-            title = item['title']+".md"
-            self.file = open(title, 'w', encoding='GBK')
+            title = item['title'] + ".md"
+            self.file = open(title, 'w', encoding='UTF-8 ')
             self.file.write(item['content'])
             self.file.close()
         return item
 
     # def close_spider(self, spider):
     #     if spider.name == 'csdn':
-
